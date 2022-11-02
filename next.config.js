@@ -4,8 +4,11 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     // Required:
-    appDir: true,
+    appDir: false,
   },
+  images: {
+    domains: ["https://particles.js.org", "upload.wikimedia.org", "i.imgur.com"]
+  }
 };
 
 module.exports = nextConfig;
