@@ -5,6 +5,8 @@ import {FooterLinks} from "../Components/Footer";
 import {useLocalStorage, useHotkeys, useWindowScroll} from "@mantine/hooks";
 import { useState } from "react";
 import "pathseg";
+import { Analytics } from '@vercel/analytics/react';
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function App({ Component, pageProps }) {
     const [colorScheme, setColorScheme] = useState("light");
@@ -25,8 +27,9 @@ export default function App({ Component, pageProps }) {
             to: '#ff5d39',
             deg: 45,
           }, }}>
+        <GoogleAnalytics gaMeasurementId="G-GEB11YKD61" />
         <Component {...pageProps} />
-        
+        <Analytics />
         <FooterLinks />
         </MantineProvider>
     </ColorSchemeProvider>
