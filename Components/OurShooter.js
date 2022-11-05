@@ -1,4 +1,4 @@
-import { Container, Grid, Text, useMantineTheme } from "@mantine/core";
+import { Container, Grid, Space, Text, useMantineTheme } from "@mantine/core";
 
 import useSWR from "swr";
 import ShooterCard from "./ShooterCard";
@@ -43,11 +43,21 @@ export default function OurShooter(){
      console.log(strelci);
     return(
         <Container px="xs" size="xl" sx={{height: "fitContent"}}>
-              <Text component="h2" size="xl" sx={{fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    lineHeight: 1.05,
-    maxWidth: 500,
-    fontSize: 48, margin: 0, whiteSpace: "nowrap"}}>Naši střelci</Text>
+              <div
+        style={{
+          border: '3px solid #545454',
+          borderRadius: '3px',
+          borderStyle: 'none none solid solid',
+          maxWidth: "fit-content",
+          textAlign: "center",
+          padding: "0 5vw"
+          
+        }}>
+             <Container px="xs" size="xl" sx={{ height: 'fitContent'}}>
+          <h2>Naše zaměření</h2>
+        </Container>
+        </div>
+        <Space h="xl" />
     <Grid sx={{minHeight: "10vh"}} >{strelci.map(strelec => {
         return(
             <Grid.Col span={4}>

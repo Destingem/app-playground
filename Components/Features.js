@@ -94,13 +94,24 @@ import {
     const features = data.map((feature, index) => <Feature {...feature} key={index} />);
   
     return (
+      <>
+     
       <Container className={classes.wrapper}>
-         
-        <Text component="h2" size="xl" sx={{fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 900,
-    lineHeight: 1.05,
-    maxWidth: 500,
-    fontSize: 48, margin: 0, whiteSpace: "nowrap"}}>Proč střílet s námi</Text>
+      <div
+        style={{
+          border: '3px solid #545454',
+          borderRadius: '3px',
+          borderStyle: 'none none solid solid',
+          maxWidth: "fit-content",
+          textAlign: "center",
+          padding: "0 5vw"
+          
+        }}>
+             <Container px="xs" size="xl" sx={{ height: 'fitContent'}}>
+          <h2>Naše zaměření</h2>
+        </Container>
+        </div>
+        
   
         <Container size={560} p={0}>
           <Text size="md" className={classes.description}>
@@ -120,5 +131,6 @@ import {
           {features}
         </SimpleGrid>
       </Container>
+      </>
     );
   }

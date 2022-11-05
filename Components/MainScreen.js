@@ -1,11 +1,12 @@
 import { createStyles, Container, Title, Text, Button } from '@mantine/core';
+import Image from 'next/image';
 
 const useStyles = createStyles((theme) => ({
   root: {
-    backgroundColor: '#11284b',
+    backgroundColor: '#1B1D43',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    backgroundImage: "url(/wave-haikei_blue.svg)",
+    backgroundImage: "url(/krivky.svg)",
     paddingTop: theme.spacing.xl * 3,
     paddingBottom: theme.spacing.xl * 3,
     height: '80vh',
@@ -32,7 +33,6 @@ const useStyles = createStyles((theme) => ({
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     marginRight: theme.spacing.xl * 3,
-
     [theme.fn.smallerThan('md')]: {
       marginRight: 0,
     },
@@ -82,8 +82,9 @@ export function MainScreen() {
       <Container size="xl">
         <div className={classes.inner}>
           <div className={classes.content}>
-            <Title className={classes.title}>
-              A{' '}
+           <div>
+           <Title className={classes.title}>
+              {' '}
               <Text
                 component="span"
                 inherit
@@ -96,8 +97,7 @@ export function MainScreen() {
             </Title>
 
             <Text className={classes.description} mt={30}>
-              Build fully functional accessible web applications with ease – Mantine includes more
-              than 100 customizable components and hooks to cover you in any situation
+              Kvalitní sportovní vybavení jenž pomůže růst nejen vám, ale i vašim výsledkům
             </Text>
 
             <Button
@@ -107,9 +107,12 @@ export function MainScreen() {
               className={classes.control}
               mt={40}
             >
-              Get started
+              Něco button
             </Button>
+           </div>
+        
           </div>
+          <div style={{position: "relative", display: "block", minHeight: "10vh", width: "20%"}}></div>
         </div>
       </Container>
     </div>
