@@ -46,6 +46,7 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
+    
     <ColorSchemeProvider
       colorScheme={colorScheme}
       toggleColorScheme={toggleColorScheme}
@@ -69,7 +70,20 @@ export default function App({ Component, pageProps }) {
           searchPlaceholder="Hledám..."
           nothingFoundMessage="Nic jsme nenašli..."
         >
-          <GoogleAnalytics gaMeasurementId="G-GEB11YKD61" trackPageViews />
+        
+          <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-GEB11YKD61"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-GEB11YKD61');
+        `}
+      </Script>
           <Component {...pageProps} />
           <Analytics />
           <FooterLinks />

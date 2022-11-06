@@ -1,5 +1,6 @@
 import { createStyles, Container, Title, Text, Button } from '@mantine/core';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -77,6 +78,7 @@ const useStyles = createStyles((theme) => ({
 
 export function MainScreen() {
   const { classes } = useStyles();
+  const router = useRouter()
   return (
     <div className={classes.root}>
       <Container size="xl">
@@ -105,6 +107,8 @@ export function MainScreen() {
               size="xl"
               className={classes.control}
               mt={40}
+              href="/products"
+              onClick={()=> {router.push('/products')}}
             >
               Prohlédnout produkty
             </Button>

@@ -16,9 +16,9 @@ import {
     Drawer,
     Collapse,
     ScrollArea,
-    Image,
-  } from '@mantine/core';
   
+  } from '@mantine/core';
+  import Image from "next/image";
   import { useDisclosure } from '@mantine/hooks';
   import {
     IconNotification,
@@ -29,6 +29,8 @@ import {
     IconCoin,
     IconChevronDown,
   } from '@tabler/icons';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
   
   const useStyles = createStyles((theme) => ({
     link: {
@@ -93,37 +95,38 @@ import {
   const mockdata = [
     {
       icon: IconCode,
-      title: 'Open source',
-      description: 'This Pokémon’s cry is very loud and distracting',
+      title: 'Artilea AI',
+      description: 'Střelecký program pro závody',
     },
     {
       icon: IconCoin,
-      title: 'Free for everyone',
-      description: 'The fluid of Smeargle’s tail secretions changes',
+      title: 'Šipky Artemis',
+      description: 'Šipky pro sportovní kuši',
     },
     {
       icon: IconBook,
-      title: 'Documentation',
-      description: 'Yanma is capable of seeing 360 degrees without',
+      title: 'Elektronické terče',
+      description: 'Elektronické terče budoucna',
     },
     {
       icon: IconFingerprint,
-      title: 'Security',
-      description: 'The shell’s rounded shape and the grooves on its.',
+      title: 'Artilea Cloud',
+      description: 'Jednotné řešení pro Artilea produkty',
     },
     {
       icon: IconChartPie3,
-      title: 'Analytics',
-      description: 'This Pokémon uses its flying ability to quickly chase',
+      title: 'Measure Me',
+      description: 'Analytický nástroj pro trenéry',
     },
     {
       icon: IconNotification,
-      title: 'Notifications',
-      description: 'Combusken battles with the intensely hot flames it spews',
+      title: 'Artilea BK',
+      description: 'Přesné měření polohy střelce',
     },
   ];
   
   export default function Navbar() {
+    const router = useRouter();
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
     const { classes, theme } = useStyles();
@@ -147,10 +150,17 @@ import {
     ));
   
     return (
-      <Box pb={120}>
+      <Box pb={120} sx>
         <Header height={60} px="md">
           <Group position="apart" sx={{ height: '100%' }}>
-            <Image src="/artilea-logo.png" height={40} width={40} />
+            <div style={{  minHeight: '5%',
+            minWidth: '8%',
+            cursor: "pointer",
+            display: 'block',
+            position: 'relative',
+            aspectRatio: '626 / 222',}} onClick={()=> {router.push("/")}}>
+            <Image src="/artilea_transparent.png" alt="logo" fill />
+            </div>
   
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
               <a href="#" className={classes.link}>
@@ -161,7 +171,7 @@ import {
                   <a href="#" className={classes.link}>
                     <Center inline>
                       <Box component="span" mr={5}>
-                        Features
+                        Produkty
                       </Box>
                       <IconChevronDown size={16} color={theme.fn.primaryColor()} />
                     </Center>
@@ -201,17 +211,16 @@ import {
                   </div>
                 </HoverCard.Dropdown>
               </HoverCard>
-              <a href="#" className={classes.link}>
-                Learn
-              </a>
-              <a href="#" className={classes.link}>
-                Academy
-              </a>
+              <Link href="#" className={classes.link}>
+                O nás
+              </Link>
+              <Link href="#" className={classes.link}>
+                Kontakt
+              </Link>
             </Group>
   
             <Group className={classes.hiddenMobile}>
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+            <Link href="https://www.shop.artilea.eu"><Button sx={{backgroundColor: "#ff5d39", color: "#131641"}} variant="gradient" gradient={["#ff5d39", "#131641"]}>Our shop</Button></Link>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -236,7 +245,7 @@ import {
             <UnstyledButton className={classes.link} onClick={toggleLinks}>
               <Center inline>
                 <Box component="span" mr={5}>
-                  Features
+                  Produkty
                 </Box>
                 <IconChevronDown size={16} color={theme.fn.primaryColor()} />
               </Center>
@@ -246,14 +255,13 @@ import {
               Learn
             </a>
             <a href="#" className={classes.link}>
-              Academy
+              Kontakt
             </a>
   
             <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
   
             <Group position="center" grow pb="xl" px="md">
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+            <Link href="https://www.shop.artilea.eu"><Button sx={{backgroundColor: "#ff5d39", color: "#131641"}} variant="gradient" gradient={["#ff5d39", "#131641"]}>Our shop</Button></Link>
             </Group>
           </ScrollArea>
         </Drawer>
