@@ -15,8 +15,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   inner: {
-    display: 'flex',
-    justifyContent: 'space-between',
+    
 
     [theme.fn.smallerThan('md')]: {
       flexDirection: 'column',
@@ -30,6 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
+    
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
     marginRight: theme.spacing.xl * 3,
@@ -82,14 +82,13 @@ export function MainScreen() {
       <Container size="xl">
         <div className={classes.inner}>
           <div className={classes.content}>
-           <div>
+           
            <Title className={classes.title}>
-              {' '}
+          
               <Text
-                component="span"
+                component="h1"
                 inherit
-                variant="gradient"
-                gradient={{ from: 'pink', to: 'yellow' }}
+                
               >
                 Střelecké vybavení
               </Text>{' '}
@@ -102,17 +101,17 @@ export function MainScreen() {
 
             <Button
               variant="gradient"
-              gradient={{ from: 'pink', to: 'yellow' }}
+              gradient={{ from: '#FF5C35', to: ' #FC6840' }}
               size="xl"
               className={classes.control}
               mt={40}
             >
-              Něco button
+              Prohlédnout produkty
             </Button>
            </div>
         
-          </div>
-          <div style={{position: "relative", display: "block", minHeight: "10vh", width: "20%"}}></div>
+         
+         
         </div>
       </Container>
     </div>

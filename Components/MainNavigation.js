@@ -1,10 +1,13 @@
 "use client"
-import { Button, SimpleGrid, Text } from '@mantine/core';
+import { ActionIcon, Button, SimpleGrid, Text } from '@mantine/core';
+import { useSpotlight } from '@mantine/spotlight';
 import Image from 'next/image';
 import Link from 'next/link';
 import "pathseg";
+import {MdSearch} from "react-icons/md"
 export default function MainNavigation() {
     let links = [{name: "O nás", to: "/onas"}, {name: "Produkty", to: "/produkty"}, {name: "Kontakt", to: "/kontakt"}];
+    const spotlight = useSpotlight();
   return (
     // absolute div in center of screen
     
@@ -44,9 +47,11 @@ export default function MainNavigation() {
                 )
             })}
         </div>
-        
+        <ActionIcon color="dark" onClick={spotlight.openSpotlight}>
+        <MdSearch />
+        </ActionIcon>
       </div>
-      <Link href="https://www.eshop.artilea.eu"><Button sx={{position: "absolute", right: "2vw", backgroundColor: "#ff5d39", color: "#131641", height: "6vh", top: "0.8vh"}} variant="gradient" gradient={["#ff5d39", "#131641"]}>Prohlédnout produkty</Button></Link>
+      <Link href="https://www.shop.artilea.eu"><Button sx={{position: "absolute", right: "2vw", backgroundColor: "#ff5d39", color: "#131641", height: "6vh", top: "0.8vh"}} variant="gradient" gradient={["#ff5d39", "#131641"]}><Text size="md">Our shop</Text></Button></Link>
     </div>
   );
 }

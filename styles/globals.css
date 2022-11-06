@@ -8,3 +8,11 @@ body {
     font: normal 75% Arial, Helvetica, sans-serif;
   };
   
+  ::selection {
+    color: red;
+    background: yellow;
+  }
+  ::-moz-selection { /* Code for Firefox */
+    color: red;
+    background: yellow;
+  }

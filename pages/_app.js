@@ -1,39 +1,80 @@
-"use client";
-import "../styles/globals.css";
-import {MantineProvider,  ColorSchemeProvider, ColorScheme} from "@mantine/core";
-import {FooterLinks} from "../Components/Footer";
-import {useLocalStorage, useHotkeys, useWindowScroll} from "@mantine/hooks";
-import { useState } from "react";
-import "pathseg";
+'use client';
+import '../styles/globals.css';
+import {
+  MantineProvider,
+  ColorSchemeProvider,
+  ColorScheme,
+} from '@mantine/core';
+import { FooterLinks } from '../Components/Footer';
+import { useLocalStorage, useHotkeys, useWindowScroll } from '@mantine/hooks';
+import { useState } from 'react';
+import 'pathseg';
 import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import { GoogleAnalytics } from 'nextjs-google-analytics';
+import { SpotlightProvider } from '@mantine/spotlight';
+import { MdFolder, MdOutlineDashboardCustomize, MdOutlineHome, MdSearch } from 'react-icons/md';
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }) {
-    const [colorScheme, setColorScheme] = useState("light");
-    
-      const toggleColorScheme = (value) =>{ setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));}
-       
-        useHotkeys([['ctrl+B', () => toggleColorScheme()]]);
-        if (process.browser) {
-          require("pathseg");
-        }
-        
-  return (
+  const [colorScheme, setColorScheme] = useState('light');
+  const router = useRouter();
+  const toggleColorScheme = (value) => {
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+  };
+  const actions = [ {
+    title: 'Home',
+    description: 'Get to home page',
+    onTrigger: () => router.push('home'),
+    icon: <MdOutlineHome size={18} />,
+  },
+  {
+    title: 'About us',
+    description: 'Get information about our company',
+    onTrigger: () => router.push('dashboard'),
+    icon: <MdOutlineDashboardCustomize size={18} />,
+  },
+  {
+    title: 'Products',
+    description: 'Explore Artilea products',
+    onTrigger: () => router.push('products'),
+    icon: <MdFolder size={18} />,
+  },]
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-     <MantineProvider  withGlobalStyles withNormalizeCSS
-      theme={{ colorScheme,  defaultGradient: {
+  useHotkeys([['ctrl+B', () => toggleColorScheme()]]);
+  if (process.browser) {
+    require('pathseg');
+  }
+
+  return (
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          colorScheme,
+          defaultGradient: {
             from: 'orange',
             to: '#ff5d39',
             deg: 45,
-          }, }}>
-        <GoogleAnalytics gaMeasurementId="G-GEB11YKD61" />
-        <Component {...pageProps} />
-        <Analytics />
-        <FooterLinks />
-        </MantineProvider>
+          },
+        }}
+      >
+        <SpotlightProvider
+          actions={actions}
+          shortcut={['mod + P', 'mod + K', '/', 'mod + F']}
+          searchIcon={<MdSearch size={18} />}
+          searchPlaceholder="Hledám..."
+          nothingFoundMessage="Nic jsme nenašli..."
+        >
+          <GoogleAnalytics gaMeasurementId="G-GEB11YKD61" trackPageViews />
+          <Component {...pageProps} />
+          <Analytics />
+          <FooterLinks />
+        </SpotlightProvider>
+      </MantineProvider>
     </ColorSchemeProvider>
-    
-  
   );
 }
