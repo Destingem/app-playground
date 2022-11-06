@@ -14,6 +14,7 @@ import { GoogleAnalytics } from 'nextjs-google-analytics';
 import { SpotlightProvider } from '@mantine/spotlight';
 import { MdFolder, MdOutlineDashboardCustomize, MdOutlineHome, MdSearch } from 'react-icons/md';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 
 export default function App({ Component, pageProps }) {
   const [colorScheme, setColorScheme] = useState('light');
