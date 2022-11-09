@@ -16,6 +16,7 @@ import {
     Drawer,
     Collapse,
     ScrollArea,
+    ActionIcon,
   
   } from '@mantine/core';
   import Image from "next/image";
@@ -31,6 +32,8 @@ import {
   } from '@tabler/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useSpotlight } from '@mantine/spotlight';
+import { MdSearch } from 'react-icons/md';
   
   const useStyles = createStyles((theme) => ({
     link: {
@@ -126,6 +129,7 @@ import { useRouter } from 'next/router';
   ];
   
   export default function Navbar() {
+    const spotlight = useSpotlight();
     const router = useRouter();
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
@@ -150,16 +154,20 @@ import { useRouter } from 'next/router';
     ));
   
     return (
-      <Box pb={120} sx>
-        <Header height={60} px="md">
-          <Group position="apart" sx={{ height: '100%' }}>
+      <Box  sx>
+        <Header height={70} px="md" sx={{width: "70vw", position: "fixed", margin: "0 auto 0 auto", border: "none", borderRadius: '0px 0px 8px 8px',  padding: "0 !important"}}>
+          <Group position="apart" sx={{ height: '100%', padding: "0 2vw" }}>
             <div style={{  minHeight: '5%',
             minWidth: '8%',
             cursor: "pointer",
             display: 'block',
             position: 'relative',
+            
             aspectRatio: '626 / 222',}} onClick={()=> {router.push("/")}}>
-            <Image src="/artilea_transparent.png" alt="logo" fill />
+
+
+          <Image src="/artilea_transparent.png" alt="logo" fill />
+      
             </div>
   
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
@@ -180,7 +188,7 @@ import { useRouter } from 'next/router';
   
                 <HoverCard.Dropdown sx={{ overflow: 'hidden' }}>
                   <Group position="apart" px="md">
-                    <Text weight={500}>Features</Text>
+                    <Text weight={500}>Produkty</Text>
                     <Anchor href="#" size="xs">
                       View all
                     </Anchor>
@@ -220,7 +228,9 @@ import { useRouter } from 'next/router';
             </Group>
   
             <Group className={classes.hiddenMobile}>
-            <Link href="https://www.shop.artilea.eu"><Button sx={{backgroundColor: "#ff5d39", color: "#131641"}} variant="gradient" gradient={["#ff5d39", "#131641"]}>Our shop</Button></Link>
+            <ActionIcon color="dark" onClick={spotlight.openSpotlight}>
+        <MdSearch />
+        </ActionIcon>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} className={classes.hiddenDesktop} />
@@ -265,6 +275,7 @@ import { useRouter } from 'next/router';
             </Group>
           </ScrollArea>
         </Drawer>
+        <Link href="https://www.shop.artilea.eu" className={classes.hiddenMobile}><Button sx={{position: "absolute", right: "2vw", backgroundColor: "#ff5d39", color: "#131641", height: "6vh", top: "0.8vh"}} variant="gradient" gradient={["#ff5d39", "#131641"]}><Text size="md">Our shop</Text></Button></Link>
       </Box>
     );
   }

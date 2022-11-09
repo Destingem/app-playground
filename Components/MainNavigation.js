@@ -1,5 +1,5 @@
 "use client"
-import { ActionIcon, Button, SimpleGrid, Text } from '@mantine/core';
+import { ActionIcon, Button, Header, SimpleGrid, Text } from '@mantine/core';
 import { useSpotlight } from '@mantine/spotlight';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function MainNavigation() {
     
 
     <div style={{ alignItems: 'center', height: 'fitContent', display: "flex", zIndex: "1100", }}>
-      <div
+      <Header
         style={{
           width: '70vw',
           backgroundColor: 'white',
@@ -21,13 +21,14 @@ export default function MainNavigation() {
           marginLeft: 'auto',
           marginRight: 'auto',
           borderRadius: '0px 0px 8px 8px',
-          height: '7vh',
+          
           display: 'flex',
           alignItems: 'center',
           padding: "0 2vw 0 2vw",
           justifyContent: "space-between",
-          position: "absolute", marginLeft: "auto", top: "0", left: "50%", transform: "translate(-50%, 0)"
+          position: "fixed", marginLeft: "auto", top: "0", left: "50%", transform: "translate(-50%, 0)"
         }}
+        height={70}
       >
         <div
           style={{
@@ -50,7 +51,7 @@ export default function MainNavigation() {
         <ActionIcon color="dark" onClick={spotlight.openSpotlight}>
         <MdSearch />
         </ActionIcon>
-      </div>
+      </Header>
       <Link href="https://www.shop.artilea.eu"><Button sx={{position: "absolute", right: "2vw", backgroundColor: "#ff5d39", color: "#131641", height: "6vh", top: "0.8vh"}} variant="gradient" gradient={["#ff5d39", "#131641"]}><Text size="md">Our shop</Text></Button></Link>
     </div>
   );

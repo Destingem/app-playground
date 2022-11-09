@@ -9,6 +9,7 @@ import { loadFull } from "tsparticles";
 import "pathseg";
 import Head from 'next/head';
 import { MainScreen } from './MainScreen';
+import Navbar from './NavBar';
 export default function TopSection(props) {
 
     const particlesInit = useCallback(async engine => {
@@ -31,7 +32,7 @@ export default function TopSection(props) {
   return (
     <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "column"}}>
     
-    <MainNavigation />
+    <Navbar />
  
     <MainScreen />
  
