@@ -33,6 +33,7 @@ export default function TopSection(props) {
     <div style={{width: "100%", height: "100%", display: "flex", flexDirection: "column"}}>
     
     <Navbar />
+    
  
     <MainScreen />
  

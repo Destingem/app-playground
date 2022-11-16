@@ -1,12 +1,11 @@
 import { Container, Mark, Text } from '@mantine/core';
+import SectionHeading from './UI/Index/SectionHeading';
 
 export default function AboutUs() {
   return (
     <div style={{ marginTop: '-25vh' }}>
       <Container px="xs" size="xl" sx={{ height: 'fitContent' }}>
-        <Text component="h1" size="6rem">
-          About.
-        </Text>
+        <SectionHeading >About.</SectionHeading>
         <Text component="p" size="xl">
           Vítejte na našich stránkách. Jsme sportovní střelci z Brna, které baví
           nejen střílet, ale také tvořit. V našem sortimentu najdete produkty ve

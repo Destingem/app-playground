@@ -8,15 +8,15 @@ const useStyles = createStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundImage: "url(/krivky.svg)",
-    paddingTop: theme.spacing.xl * 3,
-    paddingBottom: theme.spacing.xl * 3,
-    height: '80vh',
+    paddingTop: theme.spacing.xl * 4,
+    minHeight: '80vh',
+    height: 'fit-content',
    
     borderRadius:" 0 10 10 0",
   },
 
   inner: {
-    
+    height: '100%',
 
     [theme.fn.smallerThan('md')]: {
       flexDirection: 'column',
@@ -30,22 +30,27 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
+   display: 'flex',
+    flexDirection: 'column',
+    alignItems: "flex-start",
     
     paddingTop: theme.spacing.xl * 2,
-    paddingBottom: theme.spacing.xl * 2,
+    
     marginRight: theme.spacing.xl * 3,
+    
     [theme.fn.smallerThan('md')]: {
       marginRight: 0,
     },
   },
 
   title: {
-    color: theme.white,
+    color: "#E6E7E8",
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
     lineHeight: 1.05,
     maxWidth: 500,
-    fontSize: 48,
+    fontSize: 68,
+    
 
     [theme.fn.smallerThan('md')]: {
       maxWidth: '100%',
@@ -55,10 +60,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   description: {
-    color: theme.white,
-    opacity: 0.75,
+    color: "#E6E7E8",
+    opacity: 1,
     maxWidth: 500,
-
+    fontSize: 24,
     [theme.fn.smallerThan('md')]: {
       maxWidth: '100%',
     },
@@ -69,7 +74,7 @@ const useStyles = createStyles((theme) => ({
     paddingRight: 50,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontSize: 22,
-
+    marginTop: theme.spacing.xl * 2,
     [theme.fn.smallerThan('md')]: {
       width: '100%',
     },
@@ -90,18 +95,19 @@ export function MainScreen() {
               <Text
                 component="h1"
                 inherit
-                
+                sx={{margin: 0, whiteSpace: "nowrap"}}
               >
-                Střelecké vybavení
+                Od střelců pro střelce
               </Text>{' '}
-              kterému můžete věřit
+             
             </Title>
 
             <Text className={classes.description} mt={30}>
-              Kvalitní sportovní vybavení jenž pomůže růst nejen vám, ale i vašim výsledkům
+              Inovativní sportovní vybavení pro ty co chtějí objevit nové možnosti a nebojí se nových věcí.
             </Text>
 
             <Button
+            sx={{marginTop: "10% !important"}}
               variant="gradient"
               gradient={{ from: '#FF5C35', to: ' #FC6840' }}
               size="xl"

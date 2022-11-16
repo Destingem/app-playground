@@ -62,6 +62,17 @@ export default function App({ Component, pageProps }) {
             to: '#ff5d39',
             deg: 45,
           },
+          colors: {
+            orange: ['#ff5d39', '#ff5d39'],
+            darkBlue: ["#1B1D43"],
+            grey: ["#BCBEC0"],
+            lightGrey: ["#E6E7E8"],
+            lightBlue: ["#281C64"],
+            violet: ["#612096"],
+            pink: [" #A01789"],
+            lightOrange: ["#FC6840"],
+            yellow: ["#F8C93D"]
+          }
         }}
       >
         <SpotlightProvider

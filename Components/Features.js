@@ -8,6 +8,7 @@ import {
     createStyles,
   } from '@mantine/core';
   import { IconGauge, IconCookie, IconUser, IconMessage2, IconLock, TablerIcon } from '@tabler/icons';
+import SectionHeading from './UI/Index/SectionHeading';
   
   export const MOCKDATA = [
     {
@@ -97,20 +98,11 @@ import {
       <>
      
       <Container className={classes.wrapper}>
-      <div
-        style={{
-          border: '3px solid #545454',
-          borderRadius: '3px',
-          borderStyle: 'none none solid solid',
-          maxWidth: "fit-content",
-          textAlign: "center",
-          padding: "0 5vw"
-          
-        }}>
-             <Container px="xs" size="xl" sx={{ height: 'fitContent'}}>
-          <h2>Naše zaměření</h2>
-        </Container>
-        </div>
+    
+           
+          <SectionHeading>Naše zaměření</SectionHeading>
+       
+      
         
   
         <Container size={560} p={0}>

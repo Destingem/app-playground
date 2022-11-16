@@ -100,31 +100,37 @@ import { MdSearch } from 'react-icons/md';
       icon: IconCode,
       title: 'Artilea AI',
       description: 'Střelecký program pro závody',
+      link: "/ai"
     },
     {
       icon: IconCoin,
       title: 'Šipky Artemis',
       description: 'Šipky pro sportovní kuši',
+      link: "/artemis"
     },
     {
       icon: IconBook,
       title: 'Elektronické terče',
       description: 'Elektronické terče budoucna',
+      link: "/e-target"
     },
     {
       icon: IconFingerprint,
       title: 'Artilea Cloud',
       description: 'Jednotné řešení pro Artilea produkty',
+      link: "/cloud"
     },
     {
       icon: IconChartPie3,
       title: 'Measure Me',
       description: 'Analytický nástroj pro trenéry',
+      link: "/measure-me"
     },
     {
       icon: IconNotification,
       title: 'Artilea BK',
       description: 'Přesné měření polohy střelce',
+      link: "/bk"
     },
   ];
   
@@ -136,7 +142,8 @@ import { MdSearch } from 'react-icons/md';
     const { classes, theme } = useStyles();
   
     const links = mockdata.map((item) => (
-      <UnstyledButton className={classes.subLink} key={item.title}>
+      <Link  key={item.title} href={item.link}>
+        <UnstyledButton className={classes.subLink}>
         <Group noWrap align="flex-start">
           <ThemeIcon size={34} variant="default" radius="md">
             <item.icon size={22} color={theme.fn.primaryColor()} />
@@ -151,6 +158,7 @@ import { MdSearch } from 'react-icons/md';
           </div>
         </Group>
       </UnstyledButton>
+      </Link>
     ));
   
     return (
@@ -172,7 +180,7 @@ import { MdSearch } from 'react-icons/md';
   
             <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
               <a href="#" className={classes.link}>
-                Home
+                Hlavní strana
               </a>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
@@ -208,13 +216,13 @@ import { MdSearch } from 'react-icons/md';
                     <Group position="apart">
                       <div>
                         <Text weight={500} size="sm">
-                          Get started
+                         Nevíte kde začít?
                         </Text>
                         <Text size="xs" color="dimmed">
-                          Their food sources have decreased, and their numbers
+                          Podívejte se na přehled všech produktů
                         </Text>
                       </div>
-                      <Button variant="default">Get started</Button>
+                     <Link href="/produkty"> <Button variant="default">Přehled produktů</Button></Link>
                     </Group>
                   </div>
                 </HoverCard.Dropdown>
